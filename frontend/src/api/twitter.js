@@ -1,4 +1,4 @@
-const BACKEND_API_BASE = 'http://localhost:8000'
+const BACKEND_API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000'
 
 export const fetchTwitterPosts = async (query = '', limit = 5) => {
   try {

@@ -39,7 +39,7 @@ export function DatasetMonitor() {
     setAnalyzingIds({})
 
     try {
-      const response = await fetch('http://localhost:8000/api/dataset/hate-posts', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/api/dataset/hate-posts`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
