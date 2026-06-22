@@ -1,0 +1,405 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply transition-colors duration-200;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-[#0A0A0F] text-[#F1F5F9];
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.3px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+
+  /* Smooth scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-[#12121A];
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[#6366F1] rounded-full;
+  }
+}
+
+/* Color Variables for Categories */
+.category-hate_speech {
+  @apply bg-[rgba(239,68,68,0.1)] border-[#EF4444] text-[#FCA5A5];
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+}
+
+.category-sectarian {
+  @apply bg-[rgba(139,92,246,0.1)] border-[#8B5CF6] text-[#C4B5FD];
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+.category-racial_abuse {
+  @apply bg-[rgba(249,115,22,0.1)] border-[#F97316] text-[#FED7AA];
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+}
+
+.category-religious_threat {
+  @apply bg-[rgba(185,28,28,0.1)] border-[#B91C1C] text-[#FECACA];
+  box-shadow: 0 0 20px rgba(185, 28, 28, 0.3);
+}
+
+.category-neutral {
+  @apply bg-[rgba(16,185,129,0.1)] border-[#10B981] text-[#6EE7B7];
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+/* Glass Morphism */
+.glass-morphism {
+  @apply backdrop-blur-xl bg-[rgba(18,18,26,0.8)] border border-[rgba(255,255,255,0.08)];
+}
+
+.glass-morphism-light {
+  @apply backdrop-blur-xl bg-[rgba(18,18,26,0.6)] border border-[rgba(99,102,241,0.2)];
+}
+
+/* Gradient Accents */
+.gradient-text {
+  @apply bg-gradient-to-r from-[#6366F1] via-[#8B5CF6] to-[#EC4899] bg-clip-text text-transparent;
+}
+
+.gradient-purple-pink {
+  @apply bg-gradient-to-r from-[#6366F1] to-[#8B5CF6];
+}
+
+.gradient-indigo-purple {
+  @apply bg-gradient-to-r from-[#6366F1] via-[#7C3AED] to-[#8B5CF6];
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.8);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.4s ease-out;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, #6366F1 0%, #8B5CF6 50%, #6366F1 100%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+.stagger-child-1 { animation-delay: 0.1s; }
+.stagger-child-2 { animation-delay: 0.2s; }
+.stagger-child-3 { animation-delay: 0.3s; }
+.stagger-child-4 { animation-delay: 0.4s; }
+
+/* Tab Styles */
+.tab-pill {
+  @apply px-4 py-2 rounded-full font-medium transition-all duration-300;
+}
+
+.tab-active {
+  @apply bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] text-white shadow-lg;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+}
+
+.tab-inactive {
+  @apply bg-[#12121A] text-[#64748B] hover:text-[#F1F5F9] border border-[rgba(255,255,255,0.08)];
+}
+
+/* Skeleton Loading */
+.skeleton {
+  @apply animate-pulse bg-[#1a1a25] rounded;
+}
+
+/* Confidence Bar */
+.confidence-bar {
+  @apply h-2 rounded-full transition-all duration-700 ease-out;
+}
+
+/* Toast Notifications */
+.toast {
+  @apply fixed bottom-4 right-4 px-4 py-3 rounded-xl shadow-xl text-sm font-medium animate-scale-up;
+  z-index: 9999;
+}
+
+.toast-success {
+  @apply bg-[rgba(16,185,129,0.2)] border border-[#10B981] text-[#6EE7B7];
+}
+
+.toast-error {
+  @apply bg-[rgba(239,68,68,0.2)] border border-[#EF4444] text-[#FCA5A5];
+}
+
+/* Hover Effects */
+.hover-lift {
+  @apply transition-all duration-300 hover:translate-y-[-4px] hover:shadow-xl;
+}
+
+.hover-glow {
+  @apply transition-all duration-300 hover:shadow-lg;
+}
+
+/* Focus Styles */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-[#6366F1] focus:ring-offset-2 focus:ring-offset-[#0A0A0F];
+}
+
+/* Button Variants */
+.btn-primary {
+  @apply px-4 py-2 rounded-lg font-semibold text-white bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] transition-all duration-300 hover:scale-105;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.6);
+}
+
+.btn-ghost {
+  @apply px-4 py-2 rounded-lg font-semibold text-[#6366F1] border border-[#6366F1] transition-all duration-300 hover:bg-[rgba(99,102,241,0.1)];
+}
+
+.btn-secondary {
+  @apply px-3 py-1.5 rounded-lg text-sm font-medium text-white bg-[#12121A] border border-[rgba(255,255,255,0.08)] transition-all duration-300 hover:border-[#6366F1];
+}
+
+/* Sidebar Styles */
+.sidebar {
+  box-shadow: inset -1px 0 0 rgba(99, 102, 241, 0.1);
+}
+
+/* Page Wrapper */
+.page-container {
+  @apply ml-[260px] w-[calc(100%-260px)];
+}
+
+/* Main Content Area */
+main {
+  @apply overflow-y-auto;
+  scroll-behavior: smooth;
+}
+
+/* Additional Animations */
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+.animate-slide-in-left {
+  animation: slideInFromLeft 0.4s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInFromRight 0.4s ease-out;
+}
+
+.stagger-child-5 { animation-delay: 0.5s; }
+.stagger-child-6 { animation-delay: 0.6s; }
+.stagger-child-7 { animation-delay: 0.7s; }
+.stagger-child-8 { animation-delay: 0.8s; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    @apply fixed bottom-0 left-0 w-full h-20 rounded-t-xl flex-row;
+  }
+
+  .page-container {
+    @apply ml-0 w-full;
+  }
+
+  main {
+    @apply mb-20;
+  }
+}
+
+/* Cards and Containers */
+.card {
+  @apply rounded-xl border border-[rgba(255,255,255,0.08)] bg-[rgba(18,18,26,0.8)] p-6;
+}
+
+.card-hover {
+  @apply transition-all duration-300 hover:border-[rgba(99,102,241,0.3)] hover:shadow-lg hover:shadow-[rgba(99,102,241,0.1)];
+}
+
+/* Input Styles */
+.input-base {
+  @apply px-4 py-2 rounded-lg bg-[#0A0A0F] border border-[rgba(99,102,241,0.3)] focus:border-[#6366F1] focus:outline-none text-[#F1F5F9] placeholder-[#64748B] transition-all duration-200;
+}
+
+.input-base:focus {
+  border-color: #6366F1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Scrollbar customization for main content */
+main::-webkit-scrollbar {
+  @apply w-2;
+}
+
+main::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+main::-webkit-scrollbar-thumb {
+  @apply bg-[rgba(99,102,241,0.3)] rounded-full hover:bg-[rgba(99,102,241,0.6)];
+}
+
+/* Link Styles */
+a {
+  @apply transition-colors duration-200;
+}
+
+a:hover {
+  @apply text-[#6366F1];
+}
+
+/* Modal Backdrop */
+.modal-backdrop {
+  @apply fixed inset-0 bg-black/50 z-40;
+}
+
+/* Gradients */
+.gradient-indigo {
+  @apply bg-gradient-to-r from-[#6366F1] to-[#8B5CF6];
+}
+
+.gradient-purple {
+  @apply bg-gradient-to-r from-[#8B5CF6] to-[#EC4899];
+}
